@@ -1,9 +1,9 @@
 import { ListItem, InfoContainer, InfoItemContainer, Data, DeleteBtn } from './ContactItem.styled';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from 'store/operations';
+import { deleteContact } from 'store/contacts/operations';
 import { useEffect } from 'react';
-import { getContacts, getError, getFilter, getLoading } from 'store/selectors';
-import { fetchContacts } from 'store/operations';
+import { getContacts, getError, getFilter, getLoading } from 'store/contacts/selectors';
+import { fetchContacts } from 'store/contacts/operations';
 
 function ContactItem() {
     const dispatch = useDispatch();

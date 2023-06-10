@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Form, FormData, FormLabel, FormInput, AddBtn } from './ContactForm.styled'; 
-import { addContact } from 'store/operations';
+import { addContact } from 'store/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getLoading } from 'store/selectors';
+import { getContacts, getLoading } from 'store/contacts/selectors';
 import  LoaderRing from 'components/LoaderRing';
 
 function ContactForm() {

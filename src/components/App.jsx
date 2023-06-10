@@ -1,39 +1,44 @@
-import React, { memo,  useEffect  } from 'react';
-import { useSelector} from 'react-redux';
-import ContactForm from './ContactForm';
-import Filter from './Filter';
-import ContactList from './ContactList';
-import ContactItem from "./ContactItem";
-import { Container, Title, SubTitle, ContactContainer } from './App.styled';
-import { getContacts} from 'store/selectors';
-import { fetchContacts } from 'store/operations';
+import { lazy } from "react";
+import { Routes, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { RestrictedRoute, PrivateRoute } from './Routes.jsx';
+import { refreshUser } from "store/auth/operations.js";
+import useAuth from "hooks";
+
+
+const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
+const Contacts = lazy(() => import("pages/Contacts"));
+const Login = lazy(() => import("pages/Login"));
+const Home = lazy(() => import("pages/Home"));
+const Register = lazy(() => import("pages/Register"));
+
 
 function App() { 
+
   const dispatch = useDispatch();
-  const contacts  = useSelector(getContacts);
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
-      dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
 
-    return (
-      <Container>
-        <Title>Phonebook</Title>
-        <ContactForm />
-              <ContactContainer>
-          <SubTitle>Contacts ({contacts.length})</SubTitle>
-                  <Filter />
-                  <ContactList>
-                    <ContactItem />
-                  </ContactList>
-              </ContactContainer>
-      </Container>
+  return (
+    isRefreshing ? ('Fetching user data') : (
+      <Routes>
+        <Route path="/" element={<SharedLayout />} >
+          <Route index element={<Home />} />
+          <Route path="/register" element={<RestrictedRoute component={<Register />} redirectTo="/contacts" />} />
+          <Route path="/login" element={<RestrictedRoute component={<Login />} redirectTo="/contacts" />} />
+          <Route path="/contacts" element={<PrivateRoute component={<Contacts />} redirectTo="/login" />} />
+        </Route>
+      </Routes>
+      )
     );
   }
 
 
-export default memo(App);
+export default App;
 
 
