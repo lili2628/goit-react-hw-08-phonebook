@@ -10,7 +10,7 @@ const LogInForm = () => {
         const form = e.currentTarget;
         dispatch(logIn({
             email: form.elements.email.value,
-            password: form.elements.password.value,
+            password: form.elements.password.value
         }));
         form.reset();
     };

@@ -19,18 +19,18 @@ function ContactItem() {
       <>
             {contacts.length > 0 && !error && (
                 <>
-                    {visibleContacts.map(({ id, name, phone }) => {
+                    {visibleContacts.map(({ contactId, name, number }) => {
                         return (     
-                            <ListItem key={id}>
+                            <ListItem key={contactId}>
                                 <InfoContainer>
                                     <InfoItemContainer>
                                         <Data>{name}</Data>
                                     </InfoItemContainer>
                                     <InfoItemContainer>
-                                        <Data>{phone}</Data>
+                                        <Data>{number}</Data>
                                     </InfoItemContainer>
                                 </InfoContainer>
-                                <DeleteBtn type="button" onClick={() => dispatch(deleteContact(id))}>
+                                <DeleteBtn type="button" onClick={() => dispatch(deleteContact(contactId))}>
                                     Delete contact
                                 </DeleteBtn>
                             </ListItem>

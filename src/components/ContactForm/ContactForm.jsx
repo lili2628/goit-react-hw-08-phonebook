@@ -7,7 +7,7 @@ import  LoaderRing from 'components/LoaderRing';
 
 function ContactForm() {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
   const isLoading = useSelector(getLoading);
@@ -17,12 +17,12 @@ function ContactForm() {
   };
 
   const onChangeNumber = e => {
-    setPhone(e.target.value);
+    setNumber(e.target.value);
   };
 
   const resetForm = () => {
     setName('');
-    setPhone(''); 
+    setNumber(''); 
   };
 
   const onSubmitForm = e => {
@@ -31,7 +31,7 @@ function ContactForm() {
     if (contacts.find(contact => contact.name.toLowerCase() === e.target.elements.name.value.toLowerCase())) {
       alert(`${e.target.elements.name.value} is already in contact`);
     } else {
-       dispatch(addContact({ name, phone}));
+       dispatch(addContact({ name, number}));
     };
 
     resetForm();
@@ -44,22 +44,22 @@ function ContactForm() {
           <FormLabel>
             Name
             <FormInput
-            type="text"
-            name="name"
-            value={name}
-            onChange={onChangeName}
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-          />
+              type="text"
+              name="name"
+              value={name}
+              onChange={onChangeName}
+              pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              required
+            />
           </FormLabel>
         
           <FormLabel>
             Number
             <FormInput
               type="tel"
-              name="phone"
-              value={phone}
+              name="number"
+              value={number}
               onChange={onChangeNumber}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
