@@ -6,13 +6,14 @@ import  ContactItem from 'components/ContactItem';
 import  Filter  from 'components/Filter';
 import { getContacts } from 'store/contacts/selectors';
 import { Container, Title, ContactContainer, SubTitle } from 'components/App.styled';
+import { fetchContacts } from "store/contacts/operations";
 
 function Contacts() {
     const dispatch = useDispatch();
     const contacts  = useSelector(getContacts);
 
     useEffect(() => {
-        dispatch(getContacts());
+        dispatch(fetchContacts());
     }, [dispatch]);
 
     return (
