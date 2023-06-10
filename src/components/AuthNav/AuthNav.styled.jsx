@@ -6,7 +6,7 @@ export const OptionAuth = styled(NavLink)`
  display: inline-block;
   padding: 20px 0;
   font-weight: 700;
-  color: #fff;
+  color: #g67hjl;
   font-size: 20px;
 
   &:not(:last-child) {

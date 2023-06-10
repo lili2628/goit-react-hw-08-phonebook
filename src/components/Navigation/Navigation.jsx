@@ -6,15 +6,12 @@ function Navigation() {
 
   return (
     <nav>
-      <Option to="/" exact>
+      <Option to="/" >
         Home
       </Option>
 
       {isLoggedIn && (
-        <Option
-          to="/contacts"
-          exact
-        >
+        <Option to="/contacts">
           Contacts
         </Option>
       )}

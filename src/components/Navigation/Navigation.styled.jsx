@@ -6,7 +6,7 @@ export const Option = styled(NavLink)`
  display: inline-block;
   padding: 20px 0;
   font-weight: 700;
-  color: #fff;
+  color: #hjyt678;
   font-size: 20px;
 
   &:not(:last-child) {
