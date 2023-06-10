@@ -6,7 +6,6 @@ import { Suspense } from 'react';
 
 function SharedLayout() { 
   
-
   return (
       <>
           <AppBar />
@@ -14,7 +13,6 @@ function SharedLayout() {
               <Outlet />
           </Suspense>
       </>
-      
     );
 }
   

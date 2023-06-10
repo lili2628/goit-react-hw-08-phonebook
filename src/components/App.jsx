@@ -5,13 +5,12 @@ import { useEffect } from 'react';
 import { RestrictedRoute, PrivateRoute } from './Routes.jsx';
 import { refreshUser } from "store/auth/operations.js";
 import useAuth from "hooks";
+import SharedLayout from "./SharedLayout/SharedLayout.jsx";
 
-
-const SharedLayout = lazy(() => import("./SharedLayout/SharedLayout"));
-const Contacts = lazy(() => import("pages/Contacts"));
-const Login = lazy(() => import("pages/Login"));
-const Home = lazy(() => import("pages/Home"));
-const Register = lazy(() => import("pages/Register"));
+const Contacts = lazy(() => import("../pages/Contacts"));
+const Login = lazy(() => import("../pages/Login"));
+const Home = lazy(() => import("../pages/Home"));
+const Register = lazy(() => import("../pages/Register"));
 
 
 function App() { 
