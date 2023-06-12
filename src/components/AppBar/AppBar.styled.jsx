@@ -32,7 +32,7 @@ export const Box = styled(Toolbar)`
     }}
     @media screen and (min-width: 1200px) {
         & {
-        width: 120px;
+        width: 1200px;
         padding-left: 16px;
         padding-right: 16px;
     }}
