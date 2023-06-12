@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+import { Button, TextField } from '@mui/material';
 
 export const Form = styled.form`
     width: 100%;
-    border: 2px solid #cecece;
+    border: 2px solid #E7D1C7;
     border-radius: 5px;
-    box-shadow: 1px 1px 1px #4c1130;
+    box-shadow: 1px 1px 1px #D393C5;
 
     padding-top: 20px;
     padding-bottom: 20px;
@@ -16,55 +17,24 @@ export const FormData = styled.div`
     padding-bottom: 20px;
 `;
 
-export const FormLabel = styled.label`
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    align-items: center;
-`;
-
-export const FormInput = styled.input`
+export const FormInput = styled(TextField)`
     font-family: inherit;
        
-    width: 200px;
+    width: 250px;
     padding: 6px;
     margin: 0;
     
     font-size: 12px;
     
-    border: 1px solid #cecece;
-    background: #F6F6f6;
+    border: 1px solid #D393C5;
     border-radius: 4px;
 `;
 
-export const AddBtn = styled.button`
-    display: block;
-    cursor: pointer;
-    padding: 8px 14px;
-    width: 120px;
-    margin-left: auto;
-    margin-right: auto;
-
-    border: 1px solid #cecece;
-    background: #f6f6f6;
-    box-shadow: inset 0px 20px 20px #ffffff;
-    border-radius: 8px;
-
-    &:hover {
-        box-shadow: inset 0px -20px 20px #ffffff;
-    }
-
-    &:focus {
-        outline: none;
-    }
-
-    &:active {
-        margin-top: 1px;
-        margin-bottom: -1px;
-        zoom: 1;
-    }
+export const AddBtn = styled(Button)`
+   display: block;
+   width: 135px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 6px 12px;
 `;

@@ -1,16 +1,16 @@
 
-import {OptionAuth} from './AuthNav.styled.jsx';
+import {NavigationBox, OptionAuth} from './AuthNav.styled.jsx';
 
 const AuthNav = () => {
   return (
-    <div>
+    <NavigationBox>
       <OptionAuth to="/register">
-        Sign up
+        Sign Up
       </OptionAuth>
       <OptionAuth to="/login">
         Log In
       </OptionAuth>
-    </div>
+    </NavigationBox>
   );
 };
 

@@ -1,15 +1,19 @@
 import useAuth from 'hooks';
+import { MainContainer, BackgroundContainer, Title } from 'components/App.styled';
+
+
 
 function Home () {
 
   const { isLoggedIn } = useAuth();
 
   return (
-    <div>
-      <h1>Welcome 👋</h1>
-        
-      {!isLoggedIn && ( <p> Please, Signup or Login to have access to the Phonebook! </p>)}
-    </div>
+    <BackgroundContainer>
+      <MainContainer>
+         <Title>Welcome 👋</Title>
+        {!isLoggedIn && ( <p> Please, Signup or Login to have access to the Phonebook! </p>)}
+      </MainContainer>
+    </BackgroundContainer> 
   );
 }
 

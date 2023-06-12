@@ -1,14 +1,19 @@
 import { Helmet } from 'react-helmet';
 import  RegisterForm from 'components/RegisterForm';
+import { MainContainer, BackgroundContainer } from 'components/App.styled';
 
 function Register() {
     return (
-        <div>
-            <Helmet>
-                <title>Registration</title>
-            </Helmet>
-            <RegisterForm />
-        </div>
+        <BackgroundContainer>
+            <MainContainer>
+                <Helmet>
+                    <title>Registration</title>
+                </Helmet>
+                <RegisterForm />
+           </MainContainer>
+
+        </BackgroundContainer>
+        
     );
 }
 

@@ -4,6 +4,8 @@ import { deleteContact } from 'store/contacts/operations';
 import { useEffect } from 'react';
 import { getContacts, getError, getFilter, getLoading } from 'store/contacts/selectors';
 import { fetchContacts } from 'store/contacts/operations';
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 function ContactItem() {
     const dispatch = useDispatch();
@@ -30,8 +32,8 @@ function ContactItem() {
                                         <Data>{number}</Data>
                                     </InfoItemContainer>
                                 </InfoContainer>
-                                <DeleteBtn type="button" onClick={() => dispatch(deleteContact(id))}>
-                                    Delete contact
+                                <DeleteBtn type="button" color="primary" aria-label="delete" onClick={() => dispatch(deleteContact(id))}>
+                                    <DeleteIcon />
                                 </DeleteBtn>
                             </ListItem>
                         );

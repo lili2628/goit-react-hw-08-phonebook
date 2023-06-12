@@ -5,7 +5,7 @@ import  ContactList  from 'components/ContactList';
 import  ContactItem from 'components/ContactItem';
 import  Filter  from 'components/Filter';
 import { getContacts } from 'store/contacts/selectors';
-import { Container, Title, ContactContainer, SubTitle } from 'components/App.styled';
+import { Title, ContactContainer, SubTitle, MainContainer } from 'components/App.styled';
 import { fetchContacts } from "store/contacts/operations";
 
 function Contacts() {
@@ -17,7 +17,7 @@ function Contacts() {
     }, [dispatch]);
 
     return (
-        <Container>
+        <MainContainer>
             <Title>Phonebook</Title>
             <ContactForm />
                 <ContactContainer>
@@ -27,7 +27,7 @@ function Contacts() {
                         <ContactItem />
                     </ContactList>
                 </ContactContainer>
-        </Container>
+        </MainContainer>
         );
 }
 

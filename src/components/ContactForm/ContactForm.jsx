@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import { Form, FormData, FormLabel, FormInput, AddBtn } from './ContactForm.styled'; 
+import { Form, FormData, FormInput, AddBtn } from './ContactForm.styled'; 
 import { addContact } from 'store/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getLoading } from 'store/contacts/selectors';
-import  LoaderRing from 'components/LoaderRing';
+import LoaderRing from 'components/LoaderRing';
+import AddIcon from '@mui/icons-material/Add';
+
 
 function ContactForm() {
   const [name, setName] = useState('');
@@ -41,35 +43,34 @@ function ContactForm() {
     return (
       <Form onSubmit={onSubmitForm}>
         <FormData>
-          <FormLabel>
-            Name
             <FormInput
               type="text"
               name="name"
               value={name}
+              label="Name"
+              variant="filled"
+              color="secondary"
               onChange={onChangeName}
               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
               title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
               required
             />
-          </FormLabel>
-        
-          <FormLabel>
-            Number
             <FormInput
               type="tel"
               name="number"
               value={number}
+              label="Number"
+              variant="filled"
+              color="secondary"
               onChange={onChangeNumber}
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-          </FormLabel>
         </FormData>
 
         {!isLoading && (
-          <AddBtn type="submit">
+          <AddBtn type="submit" variant="contained" color="primary">
              Add contact
            </AddBtn>
         )}

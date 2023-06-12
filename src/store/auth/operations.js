@@ -1,5 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
@@ -20,8 +22,17 @@ export const register = createAsyncThunk(
             setAuthHeader(response.data.token);
 
             return response.data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
+        } catch ({ response }) {
+
+            if (response.status === 400) {
+                toast.error("User creation error! Please try again!");
+                } else if (response.status === 500) {
+                toast.error("Server error! Please try later!");
+                } else {
+                toast.error("Something went wrong!");
+                }
+                
+            return thunkAPI.rejectWithValue(response.status);
         }
     }
 );
@@ -35,8 +46,17 @@ export const logIn = createAsyncThunk(
             setAuthHeader(response.data.token);
 
             return response.data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue(error.message);
+        } catch ({ response }) {
+
+            if (response.status === 400) {
+                toast.error("User login error! Please try again!");
+                } else if (response.status === 500) {
+                toast.error("Server error! Please try later!");
+                } else {
+                toast.error("Something went wrong!");
+                }
+
+            return thunkAPI.rejectWithValue(response.status );
         }
     }
 );

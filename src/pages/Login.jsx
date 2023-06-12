@@ -1,14 +1,18 @@
 import { Helmet } from 'react-helmet';
 import LogInForm from 'components/LogInForm';
+import { MainContainer, BackgroundContainer } from 'components/App.styled';
 
 function Login() {
     return (
-        <div>
+        <BackgroundContainer>
+            <MainContainer>
             <Helmet>
                 <title>Login</title>
             </Helmet>
             <LogInForm />
-        </div>
+        </MainContainer>
+        </BackgroundContainer>
+        
     );
 }
 

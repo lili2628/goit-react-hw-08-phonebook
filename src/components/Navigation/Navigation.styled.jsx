@@ -1,29 +1,35 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
+import BottomNavigation from '@mui/material/BottomNavigation';
 
 
 export const Option = styled(NavLink)`
- display: inline-block;
+  
+  display: inline-block;
+  text-decoration: none;
   padding: 20px 0;
   font-weight: 700;
-  color: #hjyt678;
+  color: #FAF2EC;
   font-size: 20px;
+  background-color: #7362B9;
 
   &:not(:last-child) {
-  margin-right: 30px;
+  padding-right: 30px;
   }
 
   &.active {
-    color: #fa0093;
-    outline: 1px solid #fa0093;;
-    box-shadow: 0px 0px 0px 1px #fa0093;
+    color: #FCE574;
+   
   }
 
   &:hover,
   &:focuds {
-    color: #fa0093;
-    outline: 1px solid #fa0093;;
-    box-shadow: 0px 0px 0px 1px #fa0093;
+    color: #FCE574;
+ 
   }
+
+`;
+
+export const NavigationBox = styled(BottomNavigation)`
 
 `;

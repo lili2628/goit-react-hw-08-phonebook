@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import IconButton from '@mui/material/IconButton';
+
 
 export const LogoutContainer = styled.div`
     display: flex;
@@ -17,6 +19,12 @@ export const LogoutName = styled.span`
     }
 `;
 
+
+
+
+export const LogOutBtn = styled(IconButton)`
+    color: custom;
+`;
 
 
 

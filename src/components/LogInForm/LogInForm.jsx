@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { logIn } from 'store/auth/operations';
-import { Form, FormLabel, FormInput } from './LogInForm.styled';
+import { Form, FormInput, LogInBtn} from './LogInForm.styled';
+import LoginIcon from '@mui/icons-material/Login';
 
 const LogInForm = () => {
     const dispatch = useDispatch();
@@ -17,16 +18,24 @@ const LogInForm = () => {
 
     return (
         <Form onSubmit={onSubmit} autoComplete="off">
-            <FormLabel>
-                Email
-                <FormInput type="email" name="email" />
-            </FormLabel>
-            <FormLabel>
-                Password
-                <FormInput type="password" name="password" />
-            </FormLabel>
-
-            <button type="submit">Log In</button>
+            
+                <FormInput
+                    type="email"
+                    name="email" 
+                    variant="outlined"
+                    label="Email"
+                    color="accent"
+                    />
+                <FormInput
+                    type="password"
+                    name="password" 
+                    label="Password"
+                    variant="outlined"
+                    color="accent"
+                />
+           
+            <br></br> 
+            <LogInBtn type="submit" variant="contained" color="primary" endIcon={<LoginIcon />}>Log In</LogInBtn>
         </Form>
     )
 };

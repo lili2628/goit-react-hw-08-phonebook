@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { register } from 'store/auth/operations';
-import { Form, FormLabel, FormInput } from './RegisterForm.styled';
+import { Form, FormInput, SignUpBtn} from './RegisterForm.styled';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 const RegisterForm = () => {
     const dispatch = useDispatch();
@@ -18,29 +19,32 @@ const RegisterForm = () => {
 
     return (
         <Form onSubmit={handleSubmit} autoComplete="off">
-            <FormLabel>
-                Username
+            
                 <FormInput
                     type="text"
                     name="name"
+                    label="Username"
+                    variant="outlined"
+                    color="accent"
                     />
-            </FormLabel>
-            <FormLabel>
-                Email
+
                 <FormInput
                     type="email"
                     name="email" 
+                    variant="outlined"
+                    label="Email"
+                    color="accent"
                     />
-            </FormLabel>
-            <FormLabel>
-                Password
+                
                 <FormInput
                     type="password"
                     name="password" 
-                />
-            </FormLabel>
-
-            <button type="submit">Register</button>
+                    label="Password"
+                    variant="outlined"
+                    color="accent"
+            />
+           <br></br> 
+            <SignUpBtn type="submit" variant="contained" color="primary"  endIcon={<AppRegistrationIcon />}>Register</SignUpBtn>
         </Form>
     )
 };
